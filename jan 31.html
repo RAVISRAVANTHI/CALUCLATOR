@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #6200ea;
+      color: white;
+      padding: 10px 16px;
+    }
+    
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .dashboard-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .notification-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Sidebar Menu */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #3700b3;
+      color: white;
+      padding: 20px;
+      transition: left 0.3s;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 0;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #6200ea;
+      padding: 10px 0;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .bottom-nav-icon {
+      font-size: 24px;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <div class="navbar">
+    <span class="menu-icon" onclick="toggleSidebar()">&#9776;</span>
+    <span class="dashboard-title">Dashboard</span>
+    <span class="notification-icon">&#128276;</span>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="#">Account</a>
+    <a href="#">Password</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div style="flex-grow: 1; padding: 20px;">
+    <p>Welcome to the Dashboard!</p>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="#">
+      <span class="bottom-nav-icon">&#8962;</span>
+      <span>Home</span>
+    </a>
+    <a href="#">
+      <span class="bottom-nav-icon">&#128664;</span>
+      <span>Vehicles</span>
+    </a>
+    <a href="#">
+      <span class="bottom-nav-icon">&#9888;</span>
+      <span>Alerts</span>
+    </a>
+  </div>
+
+  <script>
+    // Function to toggle sidebar
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
